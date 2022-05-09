@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex: 0 0 3vh;
+  text-align: center;
+}
+
+.body {
+  flex: 0 0 95vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-current-side {
+  flex: 7 0 0;
+  border: grey 1px solid;
+  padding: 2rem;
+}
+
+.right-movie-list {
+  display: flex;
+  flex-direction: column;
+  flex: 3 0 10rem;
+  border: grey 1px solid;
+}
+
+.current-genre {
+  flex: 0 0 1rem;
+  padding: 0.5rem;
+}
+
+.pagination {
+  flex: 0 0 1rem;
+  padding: 0.5rem;
+}
+
+.pagination > select {
+  padding: 0.3rem 0.5rem; 
+  margin-right: 0.5rem;
+}
+
+.pagination > button, span {
+  padding: 0.3rem 0.5rem; 
+}
+
+.pagination > button {
+  width: 2rem;
+  border-radius: 5px;
+  border: 0;
+}
+
+.card-list {
+  flex: 1 0 calc(95vh - 2rem);
+  overflow-y: scroll;
+}
+
+.card {
+  display: flex;
+  flex: 0 0 0;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card > div:nth-child(1) {
+  flex: 3 0 0;
+}
+
+.card > div:nth-child(1) > img {
+  top: 0;
+  left: 0;
+}
+
+.card > div:nth-child(2) {
+  flex: 7 0 0;
+  padding: 0.5rem;
+}
+
+.card > div:nth-child(2):hover {
+  transition: 0.3s;
+  background-color: thistle;
+}
+
+.current-movie h1 {
+  margin-bottom: 1rem;
+}
+
+.current-movie p {
+  margin: 1rem;
+}
+
+.current-movie img {
+  margin-bottom: 1rem;
+}
+
+.tag-list {
+  margin: 10px;
+  padding: 5px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: bisque;
+  margin: 0.3rem 0.5rem;
+  padding: 0.2rem;
+}
+
