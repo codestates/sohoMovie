@@ -1,2 +1,2 @@
-First Project_
+First Project
 Soho_Movie
