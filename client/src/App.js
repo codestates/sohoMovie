@@ -10,7 +10,7 @@ import mockMovie from "./static/mockMovie";
 export const App = () => {
   // movies === 영화 전체 목록
   const [movies, setMovies] = useState([]);
-  // currentMovie === 현재 선택한 영화
+  // currentMovie === 현재 선택한 영d화
   const [currentMovie, setCurrentMovie] = useState([]);
   const handleCardClick = (movie) => {
     console.log("영화 목록을 클릭했군요!");
