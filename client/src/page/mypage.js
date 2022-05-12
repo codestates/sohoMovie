@@ -2,7 +2,7 @@ import "./styles.css";
 
 export default function Mypage() {
   return (
-    <div className="about">
+    <div >FFFFFFFFFFFFFFFFFF
       {/* <h1>About Page</h1>
       <div className="css-examples">
         <h2>Input examples</h2>
