@@ -3,9 +3,17 @@ import Header from "./Header";
 import MovieRankList from "./MovieRankList";
 import CurrentMovie from "./CurrentMovie";
 import { getMovies } from "./api/movieDataApi";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import ShoppingCart from './pages/ShoppingCart';
 
 // 기본값으로 주어지는 영화 목록은 다음을 이용하세요.
 import mockMovie from "./static/mockMovie";
+
 
 export const App = () => {
   // movies === 영화 전체 목록
@@ -28,6 +36,15 @@ export const App = () => {
     <>
       <div className="header">
         <Header />
+      
+        <Routes>
+          <Route exact={true} path="/">
+          </Route>
+          <Route path="/shoppingcart" element={ <ShoppingCart /> } >
+          </Route>
+          {/* 로그인, 로그아웃 등 다른페이지도 Route 만들기 */}
+        </Routes>
+        
       </div>
       <div className="body">
         <CurrentMovie movie={currentMovie} />
