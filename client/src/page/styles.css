@@ -1,0 +1,58 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 16px;
+  background: grey;
+}
+
+nav h3 {
+  color: aqua;
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links a {
+  color: black;
+}
+
+#item-list {
+  text-align: left;
+}
+
+#item-list li {
+  margin: 8px 0 8px 0;
+}
+
+#item-list a {
+  color: black;
+}
+
+#item-list a:hover {
+  background-color: aqua;
+}
+
+#item-list li:nth-child(5) a {
+  color: red;
+}
+
+input[type="checkbox"] + label[for="female"] {
+  color: red;
+  font-weight: bold;
+}
+
+input[type="radio"] + label[for="male"] {
+  color: darkblue;
+  font-style: italic;
+}

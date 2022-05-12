@@ -1,3 +1,10 @@
+import Nav from "./page/Nav.js";
+
+
 export default function Header() {
-  return <h1>Movie Top 10</h1>;
+  return (
+    <div className="header-body">
+      <Nav/>
+    </div>
+  );
 }
