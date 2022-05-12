@@ -1,3 +1,18 @@
+import React from 'react';
+import Nav from './components/Nav.js';
+import { Link } from 'react-router-dom';
+
+
 export default function Header() {
-  return <h1>Movie Top 10</h1>;
+  return (
+    <div id="header-body">
+      <Link to="/">
+        <h1 id="title">
+          {/* <img id="logo" src="../logo.png" alt="logo" /> */}
+          <span id="name">SOHO MOVIE</span>
+        </h1>
+      </Link>
+      <Nav/>
+    </div>
+  );
 }
