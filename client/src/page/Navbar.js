@@ -11,6 +11,9 @@ export default function NavBar() {
         </h1>
       </Link>
       <ul className="nav-links">
+        <Link to="/admin">
+          <li>관리자 페이지</li>
+        </Link>
         <Link to="/mypage">
           <li>my page</li>
         </Link>
