@@ -1,33 +1,49 @@
-const express = require("express");
-const cors = require("cors");
-
-// HINT: 영화 데이터는 다음 movies 변수를 이용하세요
-const { movies } = require("./data.json");
+require('dotenv').config();
+const fs = require('fs');
+const https = require('https');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const express = require('express');
 const app = express();
+const indexRouter = require('./routes/index');
+const AdminRouter = require('./routes/admins')
+const BucketRouter = require('./routes/bucket.js')
 
-app.use(cors());
+
+const corsOption = {
+    Headers: { "content-type": "application/json" },
+    origin: ['https://localhost:3000'],
+    credentials: true,
+    method: ["post", "get", "patch", "delete"],
+  };
+
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors(corsOption)
+);
 
-app.get("/movies", (req, res) => {
-  // TODO:
-  return res.send(movies);
-});
+app.use(cookieParser());
+app.use('/', indexRouter);
+app.use('/', AdminRouter);
+app.use('/', BucketRouter);
 
-app.get("/movies/:id", (req, res) => {
-  // TODO:
-  const { id } = req.params;
-  const findId = movies.find((moive) => moive.id === Number(id));
-  if (!findId) {
-    return res.status(404).send();
-  }
-  return res.send(findId);
-});
+const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
-// 테스트를 위한 코드입니다. 건드리지 마세요.
-if (process.env.NODE_ENV !== "test") {
-  app.listen(3001, () => {
-    console.log("server listen on 3001");
-  });
+
+let server;
+if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {
+  const privateKey = fs.readFileSync(__dirname + '/key.pem', 'utf8');
+  const certificate = fs.readFileSync(__dirname + '/cert.pem', 'utf8');
+  const credentials = { key: privateKey, cert: certificate };
+
+  server = https.createServer(credentials, app);
+  server.listen(HTTPS_PORT, () => console.log('https server runnning'));
+} else {
+  server = app.listen(HTTPS_PORT, () => console.log('http server runnning'));
 }
 
-module.exports = app;
+
+
+module.exports = server;
