@@ -1,11 +1,11 @@
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-export default function Login() {
+export default function Login({ handleResponseSuccess }) {
   const [userInfo, setUserInfo] = useState({
     user_id: "",
     password: "",
@@ -16,6 +16,8 @@ export default function Login() {
   const [errMsg, setErrMsg] = useState("");
   // 가입된 정보가 없는 경우 에러 메세지
   const [loginErrMsg, setLoginErrMsg] = useState("");
+
+  const navigate = useNavigate(); // v5 History
 
   const handleInputValue = (key) => (e) => {
     setUserInfo({ ...userInfo, [key]: e.target.value });
@@ -36,14 +38,22 @@ export default function Login() {
       setErrMsg("필수 정보입니다.");
     } else {
       setErrMsg("");
-      // axios
-      //   .get(`https)
-      //   .then((res) => {
-      //     // ?로그인 성공 했으므로, 유저 정보를 불러오고, 로그인 상태로 변경 -> 메인 페이지로 이동
-      //   })
-      //   .catch((err) => {
-      //     setLoginErrMsg("이메일과 비밀번호를 다시 확인해주세요.")
-      //   })
+      axios
+        .post(`http://localhost:4000/login`, {
+          user_id,
+          password,
+        })
+        .then((res) => {
+          if (res.data.message === "로그인 성공") {
+            handleResponseSuccess(); //App.js 상태 끌어올리기
+            navigate("/"); // history.push('/');
+          } else {
+            return setLoginErrMsg("아이디 또는 비밀번호를 잘못 입력했습니다.");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
