@@ -21,7 +21,10 @@ export default function Signup() {
   const [emailCheckMsg, setEmailCheckMsg] = useState(""); // 이메일 사용가능 메세지
 
   const [nameErrMsg, setNameErrMsg] = useState(""); // 이름 에러 메세지
-  const [nameCheckMsg, setNameCheckMsg] = useState(""); // 이름 에러 메세지
+  const [nameCheckMsg, setNameCheckMsg] = useState(""); // 이름 사용가능 메세지
+
+  const [tellErrMsg, setTellErrMsg] = useState(""); // 휴대 전화 에러 메세지
+  const [tellCheckMsg, setTellCheckErrMsg] = useState(""); // 휴대 전화 사용가능 메세지
 
   const [userInfo, setUserInfo] = useState({
     user_id: "",
@@ -37,11 +40,14 @@ export default function Signup() {
     setUserInfo({ ...userInfo, [key]: e.target.value });
   };
 
-  // 휴대전화 유효성 검사 후 입력
-  const handleTellValue = (key) => (e) => {
+  // 휴대전화 유효성 검사
+  const tellValidation = (e) => {
     const regExp = /^[0-9\b -]{0,13}$/;
-    if (regExp.test(e.target.value)) {
-      setUserInfo({ ...userInfo, [key]: e.target.value });
+    if (!regExp.test(e.target.value)) {
+      setTellErrMsg("'예: 01012345678' 숫자만 입력해주세요.");
+    } else {
+      setTellErrMsg("");
+      setTellCheckErrMsg("소중한 정보 감사합니다.");
     }
   };
 
@@ -56,7 +62,7 @@ export default function Signup() {
       // 유효 조건을 통과한 닉네임일 경우 서버에 중복 검사 요청을 보님 (검색 특화 get)
       axios.get(`http://localhost:4000/users/id?id=${user_id}`).then((res) => {
         const resMessge = res.data.message;
-       
+
         if (resMessge === "사용 가능한 아이디입니다.") {
           setIdErrMsg("");
           setIdCheckMsg("사용 가능한 아이디입니다.");
@@ -254,10 +260,18 @@ export default function Signup() {
           <div className="signup_tell">
             <div className="signup_input_title">휴대전화</div>
             <input
-              type="text"
-              onChange={handleTellValue("tell")}
+              type="number"
+              onChange={handleInputValue("tell")}
+              onBlur={tellValidation}
               className="signup_input"
             ></input>
+            {userInfo.tell === "" ? (
+              <div className="signup_warning">{errMsg}</div>
+            ) : tellErrMsg ? (
+              <div className="signup_warning">{tellErrMsg}</div>
+            ) : (
+              <div className="signup_ok">{tellCheckMsg}</div>
+            )}
           </div>
           <div className="signup_btn">
             <button className="signup_btn-text" onClick={handleSignup}>
