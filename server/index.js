@@ -8,13 +8,12 @@ const app = express();
 const indexRouter = require('./routes/index');
 const AdminRouter = require('./routes/admins')
 const BucketRouter = require('./routes/bucket.js')
-
+const UserRouter = require('./routes/users.js')
 
 const corsOption = {
-    Headers: { "content-type": "application/json" },
-    origin: ['https://localhost:3000'],
-    credentials: true,
-    method: ["post", "get", "patch", "delete"],
+  origin: ['http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS','PATCH','DELETE']
   };
 
 
@@ -26,23 +25,26 @@ app.use(
 
 app.use(cookieParser());
 app.use('/', indexRouter);
-app.use('/', AdminRouter);
-app.use('/', BucketRouter);
+app.use('/admin', AdminRouter);
+app.use('/users', UserRouter)
+app.use('/auth', UserRouter);
+app.use('/mypage',UserRouter)
+//app.use('/', BucketRouter);
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
 
 let server;
-if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {
-  const privateKey = fs.readFileSync(__dirname + '/key.pem', 'utf8');
-  const certificate = fs.readFileSync(__dirname + '/cert.pem', 'utf8');
-  const credentials = { key: privateKey, cert: certificate };
+// if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {
+//   const privateKey = fs.readFileSync(dirname + '/key.pem', 'utf8');
+//   const certificate = fs.readFileSync(dirname + '/cert.pem', 'utf8');
+//   const credentials = { key: privateKey, cert: certificate };
 
-  server = https.createServer(credentials, app);
-  server.listen(HTTPS_PORT, () => console.log('https server runnning'));
-} else {
+//   server = https.createServer(credentials, app);
+//   server.listen(HTTPS_PORT, () => console.log('https server runnning'));
+// } else {
   server = app.listen(HTTPS_PORT, () => console.log('http server runnning'));
-}
+// }
 
 
 
