@@ -1,0 +1,16 @@
+body {
+  min-height: 90vh;
+}
+
+div {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sohoMovie_logo {
+  align-items: center;
+}
+
+.sohoMovie_logo img {
+  align-items: center;
+}
