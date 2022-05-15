@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import SignupModal from "../components/SignupModal";
 // CORS요청은 기본적으로 쿠키를 설정하거나 보낼 수 없다.
 // 프론트에서 axios 요청을 할 때, withCredentials를 true로 설정해서 수동으로 CORS요청에 쿠키를 넣어줘야 한다.
 // 아래 코드는 axios 전역 설정을 true로 지정한 코드다.
@@ -8,6 +8,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 export default function Signup() {
+  const [modal, setModal] = useState(false);
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
 
   const [idErrMsg, setIdErrMsg] = useState(""); // id 에러 메세지
@@ -46,24 +47,24 @@ export default function Signup() {
 
   // 아이디 유효성 검사 - 중복검사 버튼 클릭
   const user_id_Validation = (e) => {
+    const { user_id } = userInfo;
     const regExp = /^[a-z0-9]{4,10}$/;
     if (!regExp.test(e.target.value)) {
       setIdErrMsg("아이디는 4~10자 영어 소문자, 숫자를 사용하세요.");
     } else {
       setIdErrMsg("");
       // 유효 조건을 통과한 닉네임일 경우 서버에 중복 검사 요청을 보님 (검색 특화 get)
-      // axios
-      //   .get(`${process.env.REACT_APP_API_URL}/user/id?id=${user_id}`)
-      //   .then((res) => {
-      //     const resMessge = res.data.message;
-      //     if (resMessge === "사용 가능한 아이디입니다.") {
-      //       setIdErrMsg("");
-      //       setIdCheckMsg("사용 가능한 아이디입니다.");
-      //     } else if (resMessge === "이미 사용중인 아이디입니다.") {
-      //       setIdErrMsg("이미 사용중인 아이디입니다.");
-      //       setIdCheckMsg("");
-      //     }
-      //   });
+      axios.get(`http://localhost:4000/users/id?id=${user_id}`).then((res) => {
+        const resMessge = res.data.message;
+       
+        if (resMessge === "사용 가능한 아이디입니다.") {
+          setIdErrMsg("");
+          setIdCheckMsg("사용 가능한 아이디입니다.");
+        } else if (resMessge === "이미 사용중인 아이디입니다.") {
+          setIdErrMsg("이미 사용중인 아이디입니다.");
+          setIdCheckMsg("");
+        }
+      });
     }
   };
 
@@ -129,36 +130,39 @@ export default function Signup() {
       setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
     } else {
       setErrMsg("");
-      axios.post(`${process.env.REACT_APP_API_URL}/users/signup`, {
-        user_id,
-        email,
-        password,
-        name,
-        birth,
-        tell,
-        // id => user_id, number => tell
-      });
-      // .then(res => {
-      //     자동 로그인
-      //     메인 페이지 이동
-      // })
+      axios
+        .post("http://localhost:4000/users/signup", {
+          user_id: user_id,
+          email: email,
+          password: password,
+          name: name,
+          birth: birth,
+          tell: tell,
+        })
+        .then((res) => {
+          console.log("success");
+          setModal(!modal);
+        })
+        .catch((err) => {
+          console.log("err message =>", err);
+        });
     }
   };
 
-  useEffect(() => {
-    const { tell } = userInfo;
-    if (userInfo.tell.length === 10) {
-      setUserInfo({
-        tell: tell.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"),
-      });
-    } else if (userInfo.tell.length === 13) {
-      setUserInfo({
-        tell: tell
-          .replace(/-/g, "")
-          .replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3"),
-      });
-    }
-  }, [userInfo]);
+  // useEffect(() => {
+  //   const { tell } = userInfo;
+  //   if (userInfo.tell.length === 10) {
+  //     setUserInfo({
+  //       tell: tell.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"),
+  //     });
+  //   } else if (userInfo.tell.length === 13) {
+  //     setUserInfo({
+  //       tell: tell
+  //         .replace(/-/g, "")
+  //         .replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3"),
+  //     });
+  //   }
+  // }, [userInfo]);
 
   return (
     <div>
@@ -255,11 +259,14 @@ export default function Signup() {
               className="signup_input"
             ></input>
           </div>
-          <div className="signup_btn" onClick={handleSignup}>
-            <div className="signup_btn-text">가입하기</div>
+          <div className="signup_btn">
+            <button className="signup_btn-text" onClick={handleSignup}>
+              가입하기
+            </button>
           </div>
         </div>
       </div>
+      {modal ? <SignupModal /> : null}
     </div>
   );
 }
