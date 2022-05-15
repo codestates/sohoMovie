@@ -14,4 +14,8 @@ function SignupModal() {
   );
 }
 
+<<<<<<< HEAD
 export default SignupModal;
+=======
+export default SignupModal;
+>>>>>>> 512dc62d0fbb5d2fdac02a0fee195d58bbb4ae1b

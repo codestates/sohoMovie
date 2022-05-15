@@ -60,6 +60,7 @@ export default function Signup() {
     } else {
       setIdErrMsg("");
       // 유효 조건을 통과한 닉네임일 경우 서버에 중복 검사 요청을 보님 (검색 특화 get)
+<<<<<<< HEAD
       axios
         .get(`http://localhost:4000/users/id?id=${user_id}`, {
           "content-type": "application/json",
@@ -74,6 +75,19 @@ export default function Signup() {
             setIdCheckMsg("");
           }
         });
+=======
+      axios.get(`http://localhost:4000/users/id?id=${user_id}`).then((res) => {
+        const resMessge = res.data.message;
+       
+        if (resMessge === "사용 가능한 아이디입니다.") {
+          setIdErrMsg("");
+          setIdCheckMsg("사용 가능한 아이디입니다.");
+        } else if (resMessge === "이미 사용중인 아이디입니다.") {
+          setIdErrMsg("이미 사용중인 아이디입니다.");
+          setIdCheckMsg("");
+        }
+      });
+>>>>>>> 512dc62d0fbb5d2fdac02a0fee195d58bbb4ae1b
     }
   };
 
