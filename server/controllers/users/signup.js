@@ -10,6 +10,7 @@ module.exports = {
       if (!user_id || !password || !tell|| !email) {
         return res.status(422).send("인풋값 오류");
       } else {
+        console.log(user_id,tell,name,email,birth,password)
         await users.findOrCreate({
           where: { user_id: user_id },
           defaults: {
@@ -26,9 +27,13 @@ module.exports = {
             return res.status(409).send("회원가입오류");
             console.log("회원가입오류")
           } else {
+         
             const accessToken = generateAccessToken(result.dataValues);
-            return res.status(201).cookie("jwt", accessToken).json({ message: '회원가입 성공.' })
+            console.log(accessToken)
             console.log("회원가입 성공")
+            return res.status(201).cookie("jwt", accessToken).json({ message: '회원가입 성공.' })
+            
+           
           }
         })
       }
