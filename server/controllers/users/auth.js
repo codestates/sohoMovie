@@ -1,4 +1,4 @@
-const { user } = require('../../models');
+const { users } = require('../../models');
 const { isAuthorized } = require('../tokenFunctions');
 
 module.exports ={
@@ -12,10 +12,10 @@ module.exports ={
       return res.json({data: null, message: "not authorized"})
     }
     let userInfo = {
-      id: accessTokenData.id,
+      user_id: accessTokenData.user_id,
       email: accessTokenData.email,
-      username: accessTokenData.username,
-      mobile: accessTokenData.mobile,
+      name: accessTokenData.name,
+      tell: accessTokenData.tell,
       createdAt: accessTokenData.createdAt,
       updatedAt: accessTokenData.updatedAt
     }

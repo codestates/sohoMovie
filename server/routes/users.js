@@ -9,12 +9,12 @@ const myinfocontroller = require('../controllers/users/mypage');
 
 
 router.post('/signup', Logincontroller.signup1);
-router.post('/signin', signincontroller.signin);
+router.post('/login', signincontroller.signin);
 
-router.get('/', Logincontroller.signup2);
+
 router.get('/id', Logincontroller.nickcheck);
-router.get('/auth',authcontroller.auth)
-router.get('/mypages',myinfocontroller.myinfo)
+router.get('/',authcontroller.auth)
+router.get('/mypage',myinfocontroller.myinfo)
 
 
 
