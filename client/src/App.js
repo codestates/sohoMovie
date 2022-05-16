@@ -18,9 +18,14 @@ import axios from "axios";
 export const MyContext = createContext();
 
 export const App = () => {
+  // 마이 페이지 + NavBar에서 적용 됩니다.
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
 
+  //1.  login.js -> handleLogin_로그인 요청(axios.post) 실행 -> 응답 : 콜백함수(handleResponseSuccess)_상태끌어올리기 실행
+  //2.  App.js ->  handleResponseSuccess 실행 -> isAuthenticated() 호출
+  //-> isAuthenticated_서버로 인증 요청(axios.get) 호출
+  //-> 응답 : useContext-userinfo 상태 변경 [null -> 이름, 비밀번호 ]+ useContext-isLogin 상태 변경
   const handleResponseSuccess = () => {
     isAuthenticated();
   };
@@ -30,6 +35,7 @@ export const App = () => {
       .get(`http://localhost:4000/auth`, { withCredentials: true })
       .then((data) => {
         if (data.status === 200) {
+          // useContext로 관리 됨 -> NavBar -> 마이페이지 적용
           setUserinfo(data.data.data.data);
           setIsLogin(true);
         }
@@ -37,9 +43,25 @@ export const App = () => {
       .catch((err) => console.log("Err =>", err));
   };
 
+  // isLogin(true) -> NavBar -> logout 버튼
+  // isLogin(false) -> NavBar -> loging 버튼 / 마이페이지
+  // {isLogin ? (<Mypage />)
+  //  : <button onClick={handleLogout}>Logout</button>}
+  const handleLogout = () => {
+    axios.post(`http://localhost:4000/logout`).then((res) => {
+      setUserinfo(null);
+      setIsLogin(false);
+    });
+  };
+  // useEffect 다시 공부할 것
+  useEffect(() => {
+    // 로그인 페이지 -> 로그인 버튼 클릭 될 때마다, 이를 상태 끌어올리기를 통해 A
+    isAuthenticated();
+  }, []);
+
   return (
     <>
-      <MyContext.Provider value={{ isLogin, userinfo }}>
+      <MyContext.Provider value={{ isLogin, userinfo, handleLogout }}>
         <Router>
           <NavBar />
           <Routes>
@@ -58,7 +80,7 @@ export const App = () => {
               element={<Login handleResponseSuccess={handleResponseSuccess} />}
             />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/logout" element={<Logout />} />
+            {/* <Route path="/logout" element={<Logout />} /> */}
             <Route path="/shoppingcart" element={<ShoppingCart />} />
           </Routes>
         </Router>
