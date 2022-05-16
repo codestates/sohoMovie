@@ -52,7 +52,7 @@ export const App = () => {
                 </ProtectedRoute>
               }
             /> */}
-            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/users/mypage/id?id={user_id}" element={<Mypage />} />
             <Route
               path="/login"
               element={<Login handleResponseSuccess={handleResponseSuccess} />}
