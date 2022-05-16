@@ -18,7 +18,7 @@ module.exports = {
     // HINT: jsonwebtoken 라이브러리의 verify 함수를 사용하여 decode된 payload를 리턴하세요. (공식 문서의 Synchronous한 방법을 사용합니다)
 
     const authorization = req.headers["cookie"];
-
+console.log("authorization = "+authorization)
     if(!authorization){
 
       return null;
