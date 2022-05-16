@@ -1,10 +1,7 @@
-
-
-
 {
   "development": {
     "username": "root",
-    "password": "1516902ADg@$",
+    "password": "newfox11",
     "database": "sohomovie",
     "host": "127.0.0.1",
     "dialect": "mysql"

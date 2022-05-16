@@ -1,6 +1,6 @@
 import "./styles.css";
 
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -79,11 +79,11 @@ export default function Mypage() {
 
     // ---- 서버로 수정 요청 ----
     axios
-      .patch("https://localhost:4000/user/upd/{user_id}")
+      .patch("http://localhost:4000/user/upd/{user_id}")
       .then((res) => {
         console
           .log("save success", res.data) // 패치 성공과 패치된 데이터 확인
-          .get("https://localhost:4000/user/{user_id}") // 패치 된 유저 정보를 서버로 부터 다시 받아온다.
+          .get("http://localhost:4000/user/{user_id}") // 패치 된 유저 정보를 서버로 부터 다시 받아온다.
           .then((res) => {
             setUserInfo(res.data); // 마이페이지의 이름이 수정된 이름으로 placeholder되어 있어야 한다.
             //! 메인 페이지로 이동 로직을 어떻게 작성할지 고민할 것
