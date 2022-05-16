@@ -11,7 +11,7 @@ module.exports = {
         return res.status(422).send("인풋값 오류");
       } else {
         await users.findOrCreate({
-          where: { email: email },
+          where: { user_id: user_id },
           defaults: {
             user_id: user_id,
             name: name,
