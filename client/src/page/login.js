@@ -39,7 +39,7 @@ export default function Login({ handleResponseSuccess }) {
     } else {
       setErrMsg("");
       axios
-        .post(`http://localhost:4000/users/login`, {
+        .post(`http://localhost:4000/login`, {
           user_id,
           password,
         })
