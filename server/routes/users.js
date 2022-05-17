@@ -14,7 +14,9 @@ router.post('/login', signincontroller.signin);
 
 router.get('/id', Logincontroller.nickcheck);
 router.get('/',authcontroller.auth)
-router.get('/',myinfocontroller.myinfo)
+router.get('/a/id',myinfocontroller.myinfo)
+router.patch('/upd',myinfocontroller.updinfo)
+router.delete('/del/id',myinfocontroller.delinfo)
 
 
 
