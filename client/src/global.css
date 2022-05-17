@@ -14,11 +14,11 @@
   text-align: center;
 }
 
-.body {
+/* .body {
   flex: 0 0 95vh;
   display: flex;
   flex-direction: row;
-}
+} */
 
 #ShoppingCart-body {
 
@@ -27,16 +27,21 @@
   display:block;
 } 
 
-.left-current-side {
-  flex: 7 0 0;
+.bottom-current-side {
+  /* flex: 7 0 0; */
+  box-sizing: border-box;
   border: grey 1px solid;
-  padding: 2rem;
+  padding: 4rem;
+  background: #f4f4f4;
 }
 
-.right-movie-list {
-  display: flex;
+.top-movie-list {
+  /* display: flex;
   flex-direction: column;
-  flex: 3 0 10rem;
+  flex: 3 0 10rem; */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
   border: grey 1px solid;
 }
 
@@ -65,11 +70,31 @@
   border: 0;
 }
 
-.card-list {
-  flex: 1 0 calc(95vh - 2rem);
+ul.card-list {
+  display:block;
   overflow-y: scroll;
+  height: 520px;
+  width: 100%;
+  overflow:scroll;
+  list-style: none;
 }
 
+li.card {
+  padding: 0 20px;
+  width: 200px;
+float:left;
+height: 100%;
+
+}
+
+
+li.card img{
+  border-radius: 10px;
+  padding-bottom: 10px;
+  display: block;
+  height: 300px;
+}
+/* 
 .card {
   display: flex;
   flex: 0 0 0;
@@ -94,19 +119,52 @@
 .card > div:nth-child(2):hover {
   transition: 0.3s;
   background-color: thistle;
+} */
+.current-movie{
+  width: 1000px; margin: 0 auto;
 }
 
 .current-movie h1 {
-  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 .current-movie p {
-  margin: 1rem;
+  padding: 0.7rem;
 }
 
 .current-movie img {
-  margin-bottom: 1rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+  width: 490px;
+  display: inline-block;
+  /* padding: 1rem; */
 }
+
+.current-movie .detail {
+  text-align: center;
+  width: 400px;
+  float: right;
+  padding: 0 10px;
+  border: 1px solid #eee;
+  border-radius: 10px
+    /*  */
+}
+
+.current-movie .detail .title {
+  font-size: 36px;
+  font-weight: 500;
+  padding: 1rem;
+
+}
+
+.current-movie .detail .price {
+  font-size: 18px;
+  color: #ed1c24;
+  font-weight: 400;
+  border-top: 1px solid #eee;
+  padding: 1rem;
+}
+
 
 .tag-list {
   margin: 10px;
