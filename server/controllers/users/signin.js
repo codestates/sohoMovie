@@ -16,9 +16,12 @@ signin : async (req, res) => {
     if(!data) return res.status(409).json({ message: '아이디 또는 비밀번호를 잘못 입력했습니다.' }); 
 
     else{
+      console.log("로그인 엘스 도달")
+
       const accessToken = generateAccessToken(data.dataValues);
+      console.log("elsegene  :" ,accessToken)
       sendAccessToken(res, accessToken);
-      return res.status(200).json({ message: '로그인 성공' });
+      return res.status(200).json({ message:"로그인 성공"});
     }
   } catch(err){
     console.log(err)
