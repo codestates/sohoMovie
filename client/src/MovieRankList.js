@@ -4,13 +4,13 @@ import MovieRankListEntry from "./MovieRankListEntry";
 
 export default function MovieRankList({ movies, handleCardClick }) {
   return (
-    <div className="right-movie-list">
+    <div className="top-movie-list">
       {/*
         Advanced Challenge: CurrentGenre, MovieRankListPagination 유닛 테스트를 통과합니다.
           <CurrentGenre currentGenre={'genre?'} />
           <MovieRankListPagination params={{}} setParams={() => {}} /> 
       */}
-      <div className="card-list">
+      <ul className="card-list">
         {/*
         TODO: props로 받아온 영화정보의 갯수 만큼 MovieRankListEntry를 렌더링합니다.
           (1) props로 빈 배열을 받은 경우, MovieRankListEntry가 존재하지 않고 `영화 목록이 비었습니다` 라는 문구를 표시해야 합니다. 조건부 렌더링을 활용해 보세요.
@@ -27,7 +27,7 @@ export default function MovieRankList({ movies, handleCardClick }) {
               />
             ))
           : "영화 목록이 비었습니다"}
-      </div>
+      </ul>
     </div>
   );
 }
