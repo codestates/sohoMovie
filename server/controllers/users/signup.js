@@ -23,11 +23,11 @@ module.exports = {
           }
         }).then(([result, created]) => {
           if (!created) {
-         
+         console.log("created : ", created)
             return res.status(409).send("회원가입오류");
-            console.log("회원가입오류")
           } else {
-         
+            console.log("created : ", created)
+
             const accessToken = generateAccessToken(result.dataValues);
             console.log(accessToken)
             console.log("회원가입 성공")

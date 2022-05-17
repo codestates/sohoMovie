@@ -6,7 +6,8 @@
   "scripts": {
     "prestart": "npx sequelize-cli db:migrate",
     "start": "node index.js",
-    "pretest": "npx sequelize-cli db:migrate"
+    "pretest": "npx sequelize-cli db:migrate",
+    "dev":"nodemon index.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",

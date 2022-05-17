@@ -14,7 +14,7 @@ router.post('/login', signincontroller.signin);
 
 router.get('/id', Logincontroller.nickcheck);
 router.get('/',authcontroller.auth)
-router.get('/mypage',myinfocontroller.myinfo)
+router.get('/',myinfocontroller.myinfo)
 
 
 
