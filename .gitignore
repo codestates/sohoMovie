@@ -28,3 +28,4 @@ yarn-error.log*
 yarn.lock
 config/config.json
 config.json
+/config/config.json
