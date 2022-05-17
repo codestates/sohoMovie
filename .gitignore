@@ -26,3 +26,5 @@ yarn-error.log*
 .prettierrc.json
 
 yarn.lock
+config/config.json
+config.json
