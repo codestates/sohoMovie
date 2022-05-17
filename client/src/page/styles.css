@@ -7,7 +7,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 16px;
+  min-height: 60px;
   background: grey;
 }
 

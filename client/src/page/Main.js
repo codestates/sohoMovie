@@ -20,7 +20,7 @@ export default function Main() {
     setCurrentMovie(movie);
   };
 
-  global.handleCardClick = handleCardClick; // 이 코드는 테스트를 위한 코드입니다. 실행에는 지장이 없지만, 지우면 테스트를 통과하지 않을 수 있습니다.
+  // global.handleCardClick = handleCardClick; // 이 코드는 테스트를 위한 코드입니다. 실행에는 지장이 없지만, 지우면 테스트를 통과하지 않을 수 있습니다.
 
   useEffect(() => {
     getMovies(movies).then((body) => setMovies(body));
@@ -28,9 +28,9 @@ export default function Main() {
 
   return (
     <div className="shop-items">
-      <div className="body">
-        <CurrentMovie movie={currentMovie} />
+      <div className="shop-body">
         <MovieRankList movies={movies} handleCardClick={handleCardClick} />
+        <CurrentMovie movie={currentMovie} />
       </div>
     </div>
   );
