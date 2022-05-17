@@ -27,7 +27,7 @@ export default function NavBar(props) {
               <li>my page</li>
             </Link>
             <Link to="/">
-              <li onclick="{handleLogout}">logout</li>
+              <li onClick={handleLogout}>logout</li>
             </Link>
             <Link to="/shoppingcart">
               <li>shopping cart</li>
