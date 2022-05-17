@@ -2,8 +2,12 @@ import "./styles.css";
 import axios from "axios";
 import React, { useState } from "react";
 import { useLocation } from "react-router";
+import React, { useContext } from "react";
+import { MyContext } from "../App";
 
 function Mypage(prpos) {
+  const { handleResponseSuccess } = useContext(MyContext);
+
   const location = useLocation();
   const [name, setName] = useState("");
   const [inuserinfo, setuserinfo] = useState({

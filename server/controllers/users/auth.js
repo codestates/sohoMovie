@@ -1,30 +1,24 @@
-const { user } = require('../../models');
-const { isAuthorized } = require('../tokenFunctions');
+const { users } = require("../../models");
+const { isAuthorized } = require("../tokenFunctions");
 
-module.exports ={
-  auth : async (req, res) => {
+module.exports = {
+  auth: async (req, res) => {
     //TODO: 로그인 여부를 판단하고, Access token payload를 이용하여 응답을 제공하세요.
-  
+    console.log("auth index 도달");
     const accessTokenData = isAuthorized(req);
-   
-      if(!accessTokenData){
-  
-      return res.json({data: null, message: "not authorized"})
+    console.log("isAu부분 : ", accessTokenData);
+    if (!accessTokenData) {
+      return res.json({ data: null, message: "not authorized" });
     }
     let userInfo = {
-      id: accessTokenData.id,
+      user_id: accessTokenData.user_id,
       email: accessTokenData.email,
-      username: accessTokenData.username,
-      mobile: accessTokenData.mobile,
+      name: accessTokenData.name,
+      tell: accessTokenData.tell,
       createdAt: accessTokenData.createdAt,
-      updatedAt: accessTokenData.updatedAt
-    }
-  
-    res.status(200).send({data: {userInfo: userInfo}})
-  
-  }
+      updatedAt: accessTokenData.updatedAt,
+    };
 
-
-}
-
-
+    res.status(200).send({ data: { userInfo: userInfo } });
+  },
+};

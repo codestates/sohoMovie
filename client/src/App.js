@@ -21,11 +21,13 @@ export const App = () => {
   // 마이 페이지 + NavBar에서 적용 됩니다.
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
-
+  console.log("userinfo=> [2]", userinfo);
+  // console.log("userinfo[0]=>", userinfo);
   //1.  login.js -> handleLogin_로그인 요청(axios.post) 실행 -> 응답 : 콜백함수(handleResponseSuccess)_상태끌어올리기 실행
   //2.  App.js ->  handleResponseSuccess 실행 -> isAuthenticated() 호출
   //-> isAuthenticated_서버로 인증 요청(axios.get) 호출
   //-> 응답 : useContext-userinfo 상태 변경 [null -> 이름, 비밀번호 ]+ useContext-isLogin 상태 변경
+
   const handleResponseSuccess = () => {
     isAuthenticated();
   };
@@ -36,7 +38,11 @@ export const App = () => {
       .then((data) => {
         if (data.status === 200) {
           // useContext로 관리 됨 -> NavBar -> 마이페이지 적용
-          setUserinfo(data.data.data.data);
+          console.log("data.data.data.userInfo [1]=>", data.data.data.userInfo);
+          console.log("data.data.data =>", data.data.data.data);
+          // console.log("data.data.data.data =>", data.data.data.data);
+          setUserinfo(data.data.data.userInfo);
+
           setIsLogin(true);
         }
       })
@@ -61,7 +67,9 @@ export const App = () => {
 
   return (
     <>
-      <MyContext.Provider value={{ isLogin, userinfo, handleLogout }}>
+      <MyContext.Provider
+        value={{ isLogin, userinfo, handleLogout, handleResponseSuccess }}
+      >
         <Router>
           <NavBar />
           <Routes>
