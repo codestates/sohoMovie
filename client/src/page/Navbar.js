@@ -2,12 +2,19 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { MyContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar(props) {
   const { isLogin, userinfo, handleLogout } = useContext(MyContext);
   // const history = useHistory();
-
+  const navigate = useNavigate();
   // navigate("/");
+  const handleMyPage = () => {
+    navigate({
+      pathname: "/myPage",
+      state: { userinfo: userinfo },
+    });
+  };
 
   return (
     <nav>
@@ -24,10 +31,14 @@ export default function NavBar(props) {
         {isLogin ? (
           <ul className="nav-links">
             <Link to="/mypage">
-              <li>my page</li>
+              <li onClick={handleMyPage} userinfo={userinfo}>
+                my page
+              </li>
             </Link>
             <Link to="/">
-              <li onClick={handleLogout}>logout</li>
+              <li onClick={handleLogout}>
+                <a href="/"></a>logout
+              </li>
             </Link>
             <Link to="/shoppingcart">
               <li>shopping cart</li>

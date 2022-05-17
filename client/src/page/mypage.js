@@ -1,13 +1,14 @@
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
+import { useContext } from "react";
 import React, { useState } from "react";
 import axios from "axios";
 import { MyContext } from "../App";
 axios.defaults.withCredentials = true;
 
 export default function Mypage(props) {
-  const [userinfo] = useContext(MyContext);
+  const { handleResponseSuccess } = useContext(MyContext);
   const location = useLocation();
   console.log("location=>", location);
   console.log("location.state=>", location.state);
@@ -41,11 +42,11 @@ export default function Mypage(props) {
     errorValidation: false,
   });
 
-  const handleMypage = () => {
-    axios.get(`http://localhost:4000/mypage/a/id?id=${user_id}`).then((res) => {
-      console.log(user_id);
-    });
-  };
+  // const handleMypage = () => {
+  //   axios.get(`http://localhost:4000/mypage/a/id?id=${user_id}`).then((res) => {
+  //     console.log(user_id);
+  //   });
+  // };
 
   const settingPasswordOnchange = (key) => (e) => {
     setuserinfo({ ...inuserinfo, [key]: e.target.value });
@@ -91,13 +92,14 @@ export default function Mypage(props) {
     ) {
       axios
         .patch(`http://localhost:4000/users/upd`, {
-          user_id: userinfo.user_id,
+          // user_id: userinfo.user_id,
           password: inuserinfo.password,
         })
         .then((res) => {
           if (res.status === 200) {
+            handleResponseSuccess();
             setuserinfo({ password: "", passwordCheck: "" });
-            window.location.replace("/Setting");
+            window.location.replace("/mypage");
           }
         })
         .catch((err) => {
@@ -108,7 +110,7 @@ export default function Mypage(props) {
 
   const clickDropOut = () => {
     axios
-      .delete(`http://localhost:4000/users/del/id?id=${user_id}`)
+      .delete(`http://localhost:4000//users/del/id=?{user_id}`)
       .then((res) => {
         if (res.status === 200) {
           window.location.replace("/");
