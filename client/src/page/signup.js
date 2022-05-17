@@ -76,16 +76,16 @@ export default function Signup() {
 
   // 비밀번호 유효성 검사
   // 최소 8자~최대 16자, 대문자 1개 이상, 소문자 1개, 숫자 1개, 특수 문자 1개
-  // const passwordValidation = (e) => {
-  //   const regExp =
-  //     // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
-  //     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-  //   if (!regExp.test(e.target.value)) {
-  //     setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
-  //   } else {
-  //     setpwErrMsg("");
-  //   }
-  // };
+  const passwordValidation = (e) => {
+    const regExp =
+      // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    if (!regExp.test(e.target.value)) {
+      setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+    } else {
+      setpwErrMsg("");
+    }
+  };
 
   // 비밀번호 재확인 검사
   const passwordCheckValidation = (e) => {
@@ -198,7 +198,7 @@ export default function Signup() {
             <input
               type="password"
               onChange={handleInputValue("password")}
-              // onBlur={passwordValidation}
+              onBlur={passwordValidation}
               className="signup_input"
             ></input>
             <div className="signup_warning">{pwErrMsg}</div>
