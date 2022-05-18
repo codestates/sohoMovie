@@ -2,10 +2,12 @@ import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useContext } from "react";
+import { MyContext } from "../App";
 axios.defaults.withCredentials = true;
 
-export default function Login({ handleResponseSuccess }) {
+export default function Login(props) {
+  const { issueAccessToken, loginHandler } = useContext(MyContext);
   const [loginInfo, setLoginInfo] = useState({
     user_id: "",
     password: "",
@@ -28,7 +30,9 @@ export default function Login({ handleResponseSuccess }) {
       })
       .then((res) => {
         if (res.data.message === "로그인 성공") {
-          handleResponseSuccess();
+          console.log("res.data.data => ", res.data.data.accessToken);
+          issueAccessToken(res.data.data.accessToken);
+          loginHandler();
           navigate("/");
         } else {
           return setErrorMessage("아이디 또는 비밀번호를 잘못 입력했습니다");
