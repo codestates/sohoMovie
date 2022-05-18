@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { App } from './App';
-import './global.css';
-
+import { App } from "./App";
+import "./global.css";
+import { Provider } from "react-redux";
+import store from "./redux/store/store";
 // ReactDOM.render(<App />, document.getElementById('root'));
-
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -14,16 +14,16 @@ import './global.css';
 //         <App />
 //       </BrowserRouter>
 //   </React.StrictMode>
-// ); 
+// );
 
 ReactDOM.render(
-
   <React.StrictMode>
-      {/* <Provider store={store}> */}
+    <Provider store={store}>
       {/* provider는 리덕스에서옴.. */}
-        <App />
-      {/* </Provider> */}
+      <App />
+    </Provider>
+    ,
   </React.StrictMode>,
 
-  document.getElementById('root')
+  document.getElementById("root")
 );
