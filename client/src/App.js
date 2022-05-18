@@ -11,43 +11,48 @@ import Mypage from "./page/mypage";
 
 import Login from "./page/login";
 import Logout from "./page/logout";
-import ShoppingCart from "./page/shoppingcart";
+import ShoppingCart from "./page/Shoppingcart";
 import Signup from "./page/signup";
 
 import axios from "axios";
 export const MyContext = createContext();
 
 export const App = () => {
-  // 마이 페이지 + NavBar에서 적용 됩니다.
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
+  const [accessToken, setAccessToken] = useState("");
   console.log("userinfo=> [2]", userinfo);
-  // console.log("userinfo[0]=>", userinfo);
-  //1.  login.js -> handleLogin_로그인 요청(axios.post) 실행 -> 응답 : 콜백함수(handleResponseSuccess)_상태끌어올리기 실행
-  //2.  App.js ->  handleResponseSuccess 실행 -> isAuthenticated() 호출
-  //-> isAuthenticated_서버로 인증 요청(axios.get) 호출
-  //-> 응답 : useContext-userinfo 상태 변경 [null -> 이름, 비밀번호 ]+ useContext-isLogin 상태 변경
 
-  const handleResponseSuccess = () => {
-    isAuthenticated();
+  const HandleLogin = () => {
+    setIsLogin(true);
   };
 
-  const isAuthenticated = () => {
-    axios
-      .get(`http://localhost:4000/auth`, { withCredentials: true })
-      .then((data) => {
-        if (data.status === 200) {
-          // useContext로 관리 됨 -> NavBar -> 마이페이지 적용
-          console.log("data.data.data.userInfo [1]=>", data.data.data.userInfo);
-          console.log("data.data.data =>", data.data.data.data);
-          // console.log("data.data.data.data =>", data.data.data.data);
-          setUserinfo(data.data.data.userInfo);
-
-          setIsLogin(true);
-        }
-      })
-      .catch((err) => console.log("Err =>", err));
+  const issueAccessToken = (token) => {
+    setAccessToken(token);
   };
+  // const issueAccessToken = (data.data.data.userinfo) => {
+  //   setAccessToken(data.data.data.userinfo);
+  // };
+  // const handleResponseSuccess = () => {
+  //   isAuthenticated();
+  // };
+
+  // const isAuthenticated = () => {
+  //   axios
+  //     .get(`http://localhost:4000/auth`, { withCredentials: true })
+  //     .then((data) => {
+  //       if (data.status === 200) {
+  //         // useContext로 관리 됨 -> NavBar -> 마이페이지 적용
+  //         console.log("data.data.data.userInfo [1]=>", data.data.data.userInfo);
+  //         console.log("data.data.data =>", data.data.data.data);
+  //         // console.log("data.data.data.data =>", data.data.data.data);
+  //         setUserinfo(data.data.data.userInfo);
+
+  //         setIsLogin(true);
+  //       }
+  //     })
+  //     .catch((err) => console.log("Err =>", err));
+  // };
 
   // isLogin(true) -> NavBar -> logout 버튼
   // isLogin(false) -> NavBar -> loging 버튼 / 마이페이지
@@ -60,15 +65,15 @@ export const App = () => {
     });
   };
   // useEffect 다시 공부할 것
-  useEffect(() => {
-    // 로그인 페이지 -> 로그인 버튼 클릭 될 때마다, 이를 상태 끌어올리기를 통해 A
-    isAuthenticated();
-  }, []);
+  // useEffect(() => {
+  //   // 로그인 페이지 -> 로그인 버튼 클릭 될 때마다, 이를 상태 끌어올리기를 통해 A
+  //   isAuthenticated();
+  // }, []);
 
   return (
     <>
       <MyContext.Provider
-        value={{ isLogin, userinfo, handleLogout, handleResponseSuccess }}
+        value={{ accessToken, HandleLogin, issueAccessToken, handleLogout }}
       >
         <Router>
           <NavBar />
@@ -83,10 +88,7 @@ export const App = () => {
               }
             /> */}
             <Route path="/mypage" element={<Mypage />} />
-            <Route
-              path="/login"
-              element={<Login handleResponseSuccess={handleResponseSuccess} />}
-            />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             {/* <Route path="/logout" element={<Logout />} /> */}
             <Route path="/shoppingcart" element={<ShoppingCart />} />
