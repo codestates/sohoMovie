@@ -21,7 +21,7 @@ export const MovieList = props => (
       <TextField source="year" />
       <TextField source="rating" />
       <TextField source="runtime" />
-      <TextField source="genres" />
+      <TextField source="tag" />
       <TextField source="small_cover_image" />
       <TextField source="medium_cover_image" />
       <TextField source="large_cover_image" />
@@ -38,7 +38,7 @@ export const MovieEdit = props => (
       <TextInput source="year" />
       <TextInput source="rating" />
       <TextInput source="runtime" />
-      <TextInput source="genres" />
+      <TextInput source="tag" />
       <TextInput source="summary" />
       <TextInput source="description_full" />
       <TextInput source="small_cover_image" />
@@ -57,7 +57,7 @@ export const MovieCreate = props => (
       <TextInput source="year" />
       <TextInput source="rating" />
       <TextInput source="runtime" />
-      <TextInput source="genres" />
+      <TextInput source="tag" />
       <TextInput source="summary" />
       <TextInput source="description_full" />
       <TextInput source="small_cover_image" />
