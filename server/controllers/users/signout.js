@@ -1,3 +1,6 @@
-module.exports = (req, res) => {
-  // TODO: 로그아웃 로직을 작성합니다.
-  res.status(205).send('Logged out successfully'); };
+module.exports = {
+  signout: async (req, res) => {
+    return res.status(205).json({ message: "로그아웃 성공" });
+    
+  }
+};
