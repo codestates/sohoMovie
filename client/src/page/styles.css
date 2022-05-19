@@ -3,23 +3,23 @@
   text-align: center;
 }
 
+
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 60px;
-  background: grey;
+  background: #002564;
   
 }
 
 
 nav h1 a{
-  color: #e14d54;
+  color: #fff;
   text-decoration: none;
 }
 
 .nav-links {
-  width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -27,7 +27,7 @@ nav h1 a{
 }
 
 .nav-links a {
-  color: black;
+  color: #fff;
   display: inline-block;
   padding: 0 1.5rem;
   text-decoration: none;
@@ -64,3 +64,4 @@ input[type="radio"] + label[for="male"] {
   color: darkblue;
   font-style: italic;
 }
+

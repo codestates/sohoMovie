@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useState, useReducer } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { MyContext } from "./App";
@@ -8,6 +8,8 @@ import {  useNavigate } from "react-router-dom";
 
 
 export default function CurrentMovie({ movie }) {
+  const [totalPrice, setTotalPrice] = useState(0);
+  
   const navigate = useNavigate();
   const { userinfo, isLogin, setIsLogin } = useContext(MyContext);
   const {
@@ -41,6 +43,7 @@ export default function CurrentMovie({ movie }) {
   const handleChangeValue = (event) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
+    setTotalPrice(input.b_quantity * 12000)
 
     dispatch({ [inputName]: inputValue });
   };
@@ -54,7 +57,7 @@ export default function CurrentMovie({ movie }) {
       b_date: ${input.date}
       b_time: ${input.time}
       b_quantity: ${input.b_quantity}
-      b_price: ${price}
+      b_price: ${totalPrice}
 
       `
     );
@@ -64,7 +67,7 @@ export default function CurrentMovie({ movie }) {
       b_date: `${input.date}`,
       b_time: `${input.time}`,
       b_quantity: `${input.b_quantity}`,
-      b_price: `${price}`,
+      b_price: `${totalPrice}`,
     }).then((res) => {
       if (!res) {
         console.log("장바구니담기오류 ")
@@ -123,8 +126,8 @@ export default function CurrentMovie({ movie }) {
               </select>
               
               <br />
-              <label>가 격 :</label>
-              {price}
+              <div>가 격 :{totalPrice}<br/>장 당 12000원</div>
+              
               <button type="submit">Submit</button>
             </form>
           </div>
