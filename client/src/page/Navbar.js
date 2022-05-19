@@ -19,39 +19,45 @@ export default function NavBar(props) {
   return (
     <nav>
       {/* SOHO_MOVIE title */}
-      <Link to="/">
-        <h1 id="title">
+      <h1 id="title">
+        <Link to="/" id="name">
           {/* <img id="logo" src="../logo.png" alt="logo" /> */}
-          <span id="name">SOHO MOVIE</span>
-        </h1>
-      </Link>
+          SOHO MOVIE
+        </Link>
+      </h1>
       {/* 로그인 성공 시 mypage, logout, shoppingcart */}
       {/* 로그아웃 시 login, signup, */}
       <div>
         {isLogin ? (
           <ul className="nav-links">
-            <Link to="/mypage">
-              <li onClick={handleMyPage} userinfo={userinfo}>
+            <li onClick={handleMyPage} userinfo={userinfo}>
+              <Link to="/mypage">
                 my page
-              </li>
-            </Link>
-            <Link to="/">
-              <li onClick={handleLogout}>
-                <a href="/"></a>logout
-              </li>
-            </Link>
-            <Link to="/shoppingcart">
-              <li>shopping cart</li>
-            </Link>
+              </Link>
+            </li>
+            <li onClick={handleLogout}>
+              <Link href="/" to="/">
+                logout
+              </Link>
+            </li>
+            <li>
+              <Link to="/shoppingcart">
+                shopping cart
+              </Link>
+            </li>
           </ul>
         ) : (
           <ul className="nav-links">
-            <Link to="/login">
-              <li>login</li>
-            </Link>
-            <Link to="/signup">
-              <li>signup</li>
-            </Link>
+            <li>
+              <Link to="/login">
+                login
+              </Link>
+            </li>
+            <li>
+              <Link to="/signup">
+                signup
+              </Link>
+            </li>
           </ul>
         )}
       </div>
