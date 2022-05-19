@@ -2,9 +2,13 @@ import React, { useReducer } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { MyContext } from "./App";
-// TODO: 하드코딩된 데이터를 동적으로 렌더링 되도록 다시 작성합니다.
+import {  useNavigate } from "react-router-dom";
+
+
+
 
 export default function CurrentMovie({ movie }) {
+  const navigate = useNavigate();
   const { userinfo, isLogin, setIsLogin } = useContext(MyContext);
   const {
     title,
@@ -14,6 +18,7 @@ export default function CurrentMovie({ movie }) {
     summary,
     times,
     quantity,
+    price
   } = movie;
 
   const [input, dispatch] = useReducer(
@@ -49,6 +54,8 @@ export default function CurrentMovie({ movie }) {
       b_date: ${input.date}
       b_time: ${input.time}
       b_quantity: ${input.b_quantity}
+      b_price: ${price}
+
       `
     );
     axios.post(`http://localhost:4000/bud/add`, {
@@ -57,6 +64,16 @@ export default function CurrentMovie({ movie }) {
       b_date: `${input.date}`,
       b_time: `${input.time}`,
       b_quantity: `${input.b_quantity}`,
+      b_price: `${price}`,
+    }).then((res) => {
+      if (!res) {
+        console.log("장바구니담기오류 ")
+      } else {
+        navigate("/shoppingcart");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
     });
 
     event.preventDefault();
@@ -104,7 +121,10 @@ export default function CurrentMovie({ movie }) {
                   </option>
                 ))}
               </select>
+              
               <br />
+              <label>가 격 :</label>
+              {price}
               <button type="submit">Submit</button>
             </form>
           </div>
