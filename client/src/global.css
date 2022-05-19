@@ -41,7 +41,6 @@
   flex: 3 0 10rem; */
   width: 100%;
   box-sizing: border-box;
-  padding: 2rem;
   border: grey 1px solid;
 }
 
@@ -75,12 +74,11 @@ ul.card-list {
   overflow-y: scroll;
   height: 520px;
   width: 100%;
-  overflow:scroll;
   list-style: none;
 }
 
 li.card {
-  padding: 0 20px;
+  padding: 20px;
   width: 200px;
 float:left;
 height: 100%;
@@ -94,6 +92,14 @@ li.card img{
   display: block;
   height: 300px;
 }
+.empty {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  padding-top: 1rem;
+
+}
+
 /* 
 .card {
   display: flex;
@@ -145,7 +151,7 @@ li.card img{
   width: 400px;
   float: right;
   padding: 0 10px;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
   border-radius: 10px
     /*  */
 }
@@ -154,6 +160,8 @@ li.card img{
   font-size: 36px;
   font-weight: 500;
   padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
 
 }
 
@@ -161,14 +169,14 @@ li.card img{
   font-size: 18px;
   color: #ed1c24;
   font-weight: 400;
-  border-top: 1px solid #eee;
+  
   padding: 1rem;
 }
 
 
 .tag-list {
-  margin: 10px;
-  padding: 5px;
+  margin: 10px 0;
+  padding: 5px 0;
 }
 
 .tag {
@@ -178,3 +186,8 @@ li.card img{
   padding: 0.2rem;
 }
 
+input.quantity{
+  display: inline-block;
+  width: 2rem;
+  margin-bottom: 0.5rem;
+}

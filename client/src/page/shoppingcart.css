@@ -1,0 +1,150 @@
+#item-list-container {
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  height: calc(100vh - 4rem);
+}
+
+#item-list-body {
+  background-color: #bc9eff0e;
+  padding: 5rem;
+  display: table-cell;
+  width: 100%;
+}
+
+#item-list-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding-bottom: 1rem;
+  margin: 0.5rem;
+}
+
+#shopping-cart-select-all {
+  display:none;
+}
+
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+
+#shopping-cart-container {
+  display: block;
+  /* display: flex; */
+}
+
+#item-list-text {
+  text-align: center;
+  padding: 10rem 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0049c8;;
+  width: 100%;
+  display: inline-block;
+}
+
+label {
+  cursor: default;
+}
+
+#order-summary-container {
+  width: calc(100% - 5rem);
+  padding: 0.7rem 1.4rem;
+  border: solid rgb(238, 238, 238) 0.2rem;
+  font-size: 1.5rem;
+}
+
+.cart-item-list {
+  width: 100%;
+  flex: 1 1 auto;
+  margin: 1rem;
+}
+
+.cart-item-body {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 170px;
+  list-style-type: none;
+  background: #ffffff;
+  border: solid rgb(238, 238, 238) 0.2rem;
+  display: flex;
+  max-width: 800px;
+  min-width: 500px;
+}
+
+.cart-item-info {
+  margin-left: 1rem;
+  padding: 10px;
+  flex: 1 0 auto;
+  margin-top: 30px;
+  list-style-type: none;
+}
+
+.cart-item-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #000000;
+}
+
+.cart-item-price {
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.cart-item-delete {
+  float: right;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #deceff;
+  border: none;
+  border-radius: 1rem;
+  width: 170px;
+  padding: 0.3rem;
+  text-align: center;
+  color: red;
+  margin-top: 0.4rem;
+  margin-left: 1.9rem;
+  cursor: pointer;
+}
+
+#order-summary-container > h4 {
+  margin-block-end: 1.33em;
+  font-weight: bold;
+}
+
+#order-summary {
+  position: relative;
+  text-align: start;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.order-summary-text {
+  float: right;
+  text-align: start;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+hr {
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+}

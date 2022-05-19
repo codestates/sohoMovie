@@ -1,0 +1,73 @@
+
+.loginInput {
+  border: 1px solid #cbcbcb;
+  border-radius: 6px;
+}
+input, select, option, .detail form button {
+  border: 1px solid #cbcbcb;
+  border-radius: 6px;
+  width: 305px;
+  height: 55px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 20px 0;
+}
+
+.detail form button{
+  background: #0049c8;
+  color: #fff;
+}
+
+.contert{
+  padding-top: 10rem;
+  height: 500px;
+}
+.contert button {
+border-radius: 6px;
+}
+
+button.LoginBigBtn{
+  background-color: #0049c8;;
+}
+
+.bigBtn1 {
+  width: 305px;
+  height: 55px;
+  background-color: #455789;
+  color: white;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+/* form {
+  margin-top: 20vh;
+} */
+
+.signUpErr {
+  /* text-align: left; */
+  font-size: 14px;
+  color: red;
+  margin-top: 10px;
+}
+
+.LoginBigBtn {
+  width: 305px;
+  height: 55px;
+  background-color: #298854;
+  color: white;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.loginErrMsg {
+  margin-top: 50px;
+}
+
+.underLoginInput {
+  margin-bottom: 10px;
+}
