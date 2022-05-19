@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const adminsRouter = require('./admins');
 const usersRouter = require('./users');
+const budRouter = require('./carts');
 
 
 
-router.use('/admin', adminsRouter);
 router.use('/users', usersRouter);
 router.use('/auth', usersRouter);
-
+router.use('/bud', budRouter)
 
 
 module.exports = router;

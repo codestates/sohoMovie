@@ -6,9 +6,8 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express();
 const indexRouter = require('./routes/index');
-const AdminRouter = require('./routes/admins')
-const BucketRouter = require('./routes/bucket.js')
 const UserRouter = require('./routes/users.js')
+const CartsRouter = require('./routes/carts.js')
 
 const corsOption = {
   origin: ['http://localhost:3000'],
@@ -23,11 +22,10 @@ app.use(cors(corsOption));
 
 app.use(cookieParser());
 app.use('/', indexRouter);
-app.use('/admin', AdminRouter);
 app.use('/users', UserRouter)
 app.use('/auth', UserRouter);
 app.use('/mypage',UserRouter)
-//app.use('/', BucketRouter);
+app.use('/bud', CartsRouter);
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 console.log(HTTPS_PORT);

@@ -20,6 +20,7 @@ const mockMovie = [
     medium_cover_image: "img/범죄도시2.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "닥터 스트레인지-대혼돈의 멀티버스",
@@ -35,6 +36,7 @@ const mockMovie = [
     medium_cover_image: "img/대혼돈의멀티버스.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "쥬라기 월드-도미니언 ",
@@ -45,6 +47,7 @@ const mockMovie = [
     medium_cover_image: "img/쥬라기월드.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "매스",
@@ -59,6 +62,7 @@ const mockMovie = [
     medium_cover_image: "img/매스.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "배드 가이즈",
@@ -79,6 +83,7 @@ const mockMovie = [
     medium_cover_image: "img/배드가이즈.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "극장판 주술회전 0",
@@ -99,6 +104,7 @@ const mockMovie = [
     medium_cover_image: "img/주술회전.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "아치의 노래, 정태춘",
@@ -119,6 +125,7 @@ const mockMovie = [
     medium_cover_image: "img/정태춘.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "파리, 13구",
@@ -140,6 +147,7 @@ const mockMovie = [
     medium_cover_image: "img/파리13구.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "민스미트 작전",
@@ -162,6 +170,7 @@ const mockMovie = [
     medium_cover_image: "img/민스미트작전.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
   {
     title: "신비한 동물들과 덤블도어의 비밀",
@@ -181,6 +190,7 @@ const mockMovie = [
     medium_cover_image: "img/덤블도어의비밀.jpg",
     times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
     quantity: 0,
+    price : 10000,
   },
 ];
 
