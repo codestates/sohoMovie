@@ -13,11 +13,11 @@ export default function Shoppingcart({ handleReservation }) {
   const [cartMovies, setCartMovies] = useState({});
   const [checkedItems, setCheckedItems] = useState([]);
 
-  const handleGetMovies = () => {
-    axios.get("cartDB", { user_id: userinfo.user_id }).then((res) => {
-      setCartMovies(res.data);
-    });
-  };
+  // const handleGetMovies = () => {
+  //   axios.get("cartDB", { user_id: userinfo.user_id }).then((res) => {
+  //     setCartMovies(res.data);
+  //   });
+  // };
   const handleDelete = (title) => {
     setCartMovies("");
     //TODO: dispatch 함수를 호출하여 액션을 전달하세요.
@@ -25,7 +25,7 @@ export default function Shoppingcart({ handleReservation }) {
   };
 
   return (
-    <div id="item-list-container" handleGetMovies={handleGetMovies()}>
+    <div id="item-list-container">
       <div id="item-list-body">
         <div id="item-list-title">장바구니</div>
         <span id="shopping-cart-select-all">
