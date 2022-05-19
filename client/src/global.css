@@ -80,7 +80,7 @@ ul.card-list {
 }
 
 li.card {
-  padding: 0 20px;
+  padding: 20px;
   width: 200px;
 float:left;
 height: 100%;
@@ -94,6 +94,14 @@ li.card img{
   display: block;
   height: 300px;
 }
+.empty {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  padding-top: 1rem;
+
+}
+
 /* 
 .card {
   display: flex;
@@ -167,8 +175,8 @@ li.card img{
 
 
 .tag-list {
-  margin: 10px;
-  padding: 5px;
+  margin: 10px 0;
+  padding: 5px 0;
 }
 
 .tag {
@@ -178,3 +186,8 @@ li.card img{
   padding: 0.2rem;
 }
 
+input.quantity{
+  display: inline-block;
+  width: 2rem;
+  margin-bottom: 0.5rem;
+}

@@ -1,8 +1,9 @@
 import MovieRankListEntry from "./MovieRankListEntry";
+import movies from "./static/mockMovie";
 // import CurrentGenre from './CurrentGenre';
 // import MovieRankListPagination from './MovieRankListPagination';
 
-export default function MovieRankList({ movies, handleCardClick }) {
+export default function MovieRankList({ handleCardClick }) {
   return (
     <div className="top-movie-list">
       {/*
@@ -26,7 +27,9 @@ export default function MovieRankList({ movies, handleCardClick }) {
                 handleCardClick={handleCardClick}
               />
             ))
-          : "영화 목록이 비었습니다"}
+          : 
+          <li className="empty">"영화 목록이 비었습니다"</li>
+          }
       </ul>
     </div>
   );

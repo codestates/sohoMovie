@@ -1,0 +1,131 @@
+.signup {
+  width: 100vw;
+  height: auto;
+  background: #070e27;
+  text-align: center;
+}
+
+.signup_wrap {
+  width: 840px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 43px;
+  padding-bottom: 100px;
+}
+
+.signup_title {
+  width: 133px;
+  height: 43px;
+  margin: 0 auto;
+  font-size: 36px;
+  line-height: 42px;
+  color: #fff;
+}
+
+.signup_user_id {
+  width: 400px;
+  height: 114px;
+  margin: 68px auto 0;
+}
+
+.signup_input_title {
+  width: 360px;
+  height: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: #d4d4d4;
+  text-align: left;
+}
+
+.signup_input {
+  width: 400px;
+  height: 60px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background: #fff;
+  border: 1px solid #dbe2ea;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgb(44 39 56 / 4%);
+  border-radius: 6px;
+  font-size: 20px;
+  line-height: 26px;
+  padding-left: 16px;
+}
+
+.signup_warning {
+  /* width: 250px; */
+  height: 18px;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: left;
+  font-weight: 400;
+  color: #ff7171;
+}
+
+.signup_ok {
+  width: 250px;
+  height: 18px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #0059f7;
+  text-align: left;
+}
+
+.signup_password {
+  width: 400px;
+  height: 114px;
+  margin: 40px auto 0;
+}
+
+.signup_rePassword {
+  width: 400px;
+  height: 114px;
+  margin: 40px auto 0;
+}
+
+.signup_name {
+  width: 400px;
+  height: 114px;
+  margin: 40px auto 0;
+}
+
+.signup_email {
+  width: 400px;
+  height: 114px;
+  margin: 40px auto 0;
+}
+
+.signup_birth {
+  width: 400px;
+  height: 114px;
+  margin: 40px auto 0;
+}
+
+.signup_tell {
+  width: 400px;
+  height: 114px;
+  margin: 40px auto 0;
+}
+
+.signup_btn {
+  width: 400px;
+  height: 56px;
+  margin: 70px auto 0;
+  background: #0059f7;
+  border-radius: 8px;
+  border-width: 0;
+  cursor: pointer;
+}
+
+.signup_btn-text {
+  position: relative;
+  width: 74px;
+  height: 24px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  margin: 0 163px;
+  top: 16px;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./signup.css";
 import SignupModal from "../components/SignupModal";
 // CORS요청은 기본적으로 쿠키를 설정하거나 보낼 수 없다.
 // 프론트에서 axios 요청을 할 때, withCredentials를 true로 설정해서 수동으로 CORS요청에 쿠키를 넣어줘야 한다.
@@ -274,9 +275,9 @@ export default function Signup() {
             )}
           </div>
           <div className="signup_btn">
-            <button className="signup_btn-text" onClick={handleSignup}>
+            <div className="signup_btn-text" onClick={handleSignup}>
               가입하기
-            </button>
+            </div>
           </div>
         </div>
       </div>

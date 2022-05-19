@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import "./signupModal.css";
 function SignupModal() {
   return (
     <div className="singupModal-background">
