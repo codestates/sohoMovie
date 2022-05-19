@@ -1,11 +1,10 @@
 const mockMovie = [
   {
-    title: '범죄도시2',
+    title: "범죄도시2",
     rating: 8.6,
     runtime: 107,
-    tag: ['Action', 'Adventure', 'Comedy', 'Romance', 'Sci-Fi', 'Mock'],
-    summary:
-      `“느낌 오지? 이 놈 잡아야 하는 거”
+    tag: ["Action", "Adventure", "Comedy", "Romance", "Sci-Fi", "Mock"],
+    summary: `“느낌 오지? 이 놈 잡아야 하는 거”
 
       가리봉동 소탕작전 후 4년 뒤,
       금천서 강력반은 베트남으로 도주한 용의자를 인도받아 오라는 미션을 받는다.
@@ -18,88 +17,62 @@ const mockMovie = [
       
       나쁜 놈들 잡는 데 국경 없다!
       통쾌하고 화끈한 범죄 소탕 작전이 다시 펼쳐진다! `,
-    medium_cover_image: 'img/범죄도시2.jpg',
+    medium_cover_image: "img/범죄도시2.jpg",
     times: [
+      "-- 회차를 선택해 주세요 --",
       "1회차",
       "2회차",
       "3회차",
       "4회차",
       "5회차",
     ],
-quantity:0
-    
-
+    quantity: 0,
   },
   {
-    title: '닥터 스트레인지-대혼돈의 멀티버스',
+    title: "닥터 스트레인지-대혼돈의 멀티버스",
     rating: 9.6,
     runtime: 143,
-    tag: ['Action', 'Adventure', 'Comedy', 'Thriller', 'Sci-Fi'],
-    summary:
-      `지금껏 본 적 없는 마블의 극한 상상력!
+    tag: ["Action", "Adventure", "Comedy", "Thriller", "Sci-Fi"],
+    summary: `지금껏 본 적 없는 마블의 극한 상상력!
       5월, 광기의 멀티버스가 깨어난다!
         
       끝없이 균열되는 차원과 뒤엉킨 시공간의 멀티버스가 열리며
       오랜 동료들, 그리고 차원을 넘어 들어온 새로운 존재들을 맞닥뜨리게 된 ‘닥터 스트레인지’.
       대혼돈 속, 그는 예상치 못한 극한의 적과 맞서 싸워야만 하는데….`,
     medium_cover_image: "img/대혼돈의멀티버스.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '쥬라기 월드-도미니언 ',
+    title: "쥬라기 월드-도미니언 ",
     rating: 7.6,
     runtime: 173,
-    tag: ['Action', 'Adventure', 'Thriller', 'Sci-Fi'],
-    summary:
-      ``,
+    tag: ["Action", "Adventure", "Thriller", "Sci-Fi"],
+    summary: ``,
     medium_cover_image: "img/쥬라기월드.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '매스',
+    title: "매스",
     rating: 7.2,
     runtime: 153,
-    tag: ['Action', 'Adventure', 'Thriller', 'Sci-Fi'],
-    summary:
-      `“해주고 싶은 얘기가 있어요”
+    tag: ["Action", "Adventure", "Thriller", "Sci-Fi"],
+    summary: `“해주고 싶은 얘기가 있어요”
 
       돌이킬 수 없는 사건으로 아이를 잃은 두 부부의
       슬픔, 분노, 절망, 후회가 폭발하는
       111분의 마스터피스`,
     medium_cover_image: "img/매스.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '배드 가이즈',
+    title: "배드 가이즈",
     rating: 7.2,
     runtime: 153,
-    tag: ['Action', 'Adventure', 'Thriller', 'Fantasy'],
-    summary:
-      `드림웍스 최초의 범죄오락액션 블록버스터!
+    tag: ["Action", "Adventure", "Thriller", "Fantasy"],
+    summary: `드림웍스 최초의 범죄오락액션 블록버스터!
       어디 착한 짓 좀 해볼까?
       
       작전 설계부터 금고 해제, 해킹, 액션, 위장까지 
@@ -111,23 +84,15 @@ quantity:0
       
       나쁜 녀석들의 사상 초유 바른 생활 갓생 프로젝트가 시작된다!`,
     medium_cover_image: "img/배드가이즈.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '극장판 주술회전 0',
+    title: "극장판 주술회전 0",
     rating: 7.2,
     runtime: 163,
-    tag: ['Action', 'Animation', 'Adventure'],
-    summary:
-      `어릴 적 소꿉친구인 오리모토 리카를 교통사고로 눈앞에서 잃은 옷코츠 유타.
+    tag: ["Action", "Animation", "Adventure"],
+    summary: `어릴 적 소꿉친구인 오리모토 리카를 교통사고로 눈앞에서 잃은 옷코츠 유타.
 
       “약속해, 리카와 유타는 어른이 되면 결혼하기로”
       옷코츠는 원령으로 변한 리카의 저주에 괴로워한 나머지, 자신도 죽기를 바라지만 최강의 주술사인 고죠 사토루에 의해 주술고전에 들어가게 된다. 그리고 동급생인 젠인마키, 이누마키 토게, 판다를 만나면서 굳은 결심을 한다.
@@ -139,23 +104,15 @@ quantity:0
       “12월 24일, 우리는 백귀야행을 결행한다”
       주술사만의 낙원을 만들려는 게토는 비술사를 섬멸하겠다면서, 신주쿠와 교토에 천의 저주를 내리는데…과연 옷코츠는 게토를 막을 수 있을까? 그리고리카의 저주를 풀 수 있을까?`,
     medium_cover_image: "img/주술회전.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '아치의 노래, 정태춘',
+    title: "아치의 노래, 정태춘",
     rating: 5.2,
     runtime: 153,
-    tag: ['Action', 'Drama'],
-    summary:
-      `한국 포크 역사상 가장 뜨거웠던 뮤지션
+    tag: ["Action", "Drama"],
+    summary: `한국 포크 역사상 가장 뜨거웠던 뮤지션
       정태춘의 이야기가 펼쳐진다!
        
       10대 가수상, 가요 사전심의 철폐운동
@@ -167,23 +124,15 @@ quantity:0
       데뷔 40주년, 우리가 몰랐던
       정태춘의 음악과 삶을 만나다!`,
     medium_cover_image: "img/정태춘.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '파리, 13구',
+    title: "파리, 13구",
     rating: 6.2,
     runtime: 163,
-    tag: ['Romance', 'Drama'],
-    summary:
-      `화려함 속에 가려진 외로운 도시, 파리 13구.
+    tag: ["Romance", "Drama"],
+    summary: `화려함 속에 가려진 외로운 도시, 파리 13구.
       낭만을 잃었다 생각한 그 곳에서 불현듯 사랑을 만났다.
       
       사랑을 원하는 에밀리
@@ -196,23 +145,15 @@ quantity:0
       여전히 사랑을 믿는 도시
       <파리, 13구>`,
     medium_cover_image: "img/파리13구.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '민스미트 작전',
+    title: "민스미트 작전",
     rating: 6.2,
     runtime: 163,
-    tag: ['Action', 'Drama'],
-    summary:
-      `제2차 세계대전의 판도를 바꿀 단 한 번의 기회!
+    tag: ["Action", "Drama"],
+    summary: `제2차 세계대전의 판도를 바꿀 단 한 번의 기회!
       우리는 이 전쟁의 승기를 잡을 것이다!
        
       사상 최대의 인명 피해를 낳은 제2차 세계대전,
@@ -226,23 +167,15 @@ quantity:0
        
       2022, 예상을 뛰어 넘는 위대한 작전이 시작된다!`,
     medium_cover_image: "img/민스미트작전.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
   {
-    title: '신비한 동물들과 덤블도어의 비밀',
+    title: "신비한 동물들과 덤블도어의 비밀",
     rating: 6.2,
     runtime: 163,
-    tag: ['Action', 'Drama'],
-    summary:
-      `가장 위험한 마법에 맞선, 세상을 구할 전쟁이 시작된다!
+    tag: ["Action", "Drama"],
+    summary: `가장 위험한 마법에 맞선, 세상을 구할 전쟁이 시작된다!
 
       1930년대, 제2차 세계대전에 마법사들이 개입하게 되면서
       강력한 어둠의 마법사 그린델왈드의 힘이 급속도로 커진다.
@@ -253,15 +186,8 @@ quantity:0
       한편 전쟁의 위기가 최고조로 달한 상황 속에서 덤블도어는
       더이상 방관자로 머물 수 없는 순간을 맞이하고, 서서히 숨겨진 비밀이 드러나는데`,
     medium_cover_image: "img/덤블도어의비밀.jpg",
-    times: [
-      "1회차",
-      "2회차",
-      "3회차",
-      "4회차",
-      "5회차",
-    ],
-quantity:0
-
+    times: ["1회차", "2회차", "3회차", "4회차", "5회차"],
+    quantity: 0,
   },
 ];
 
