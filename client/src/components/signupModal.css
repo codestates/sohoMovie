@@ -1,0 +1,57 @@
+.singupModal-background {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: grid;
+  place-items: center;
+}
+
+.singupModal {
+  width: 300px;
+  height: 313px;
+  margin: 0 auto;
+  background: #0059f7;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.suM-image {
+  position: relative;
+  top: 43px;
+  width: 80px;
+  height: 80px;
+  margin: 43px auto 0;
+  /* background: url(/static/media/Signup-ok.58e62bc1.png); */
+  background-position: 50%;
+  background-size: cover;
+}
+
+.suM-text {
+  width: 135px;
+  height: 48px;
+  margin: 56px auto 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #fff;
+  word-break: keep-all;
+}
+
+.suM-btn {
+  width: 100px;
+  height: 34px;
+  margin: 21px auto 0;
+  background: #fff;
+  border-radius: 8px;
+  border-width: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+  cursor: pointer;
+}

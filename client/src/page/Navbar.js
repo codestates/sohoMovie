@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { MyContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function NavBar(props) {
-  const { isLogin, userinfo, handleLogout } = useContext(MyContext);
+  const { isLogin, userinfo, handleLogout, cartMovies, setCartMovies } =
+    useContext(MyContext);
   // const history = useHistory();
   const navigate = useNavigate();
   // navigate("/");
@@ -14,6 +16,14 @@ export default function NavBar(props) {
       pathname: "/myPage",
       state: { userinfo: userinfo },
     });
+  };
+
+  const handleShoppingcart = () => {
+    axios
+      .get("http://localhost:4000", { user_id: userinfo.user_id })
+      .then((data) => {
+        setCartMovies(data.movies);
+      });
   };
 
   return (
@@ -41,7 +51,7 @@ export default function NavBar(props) {
               </li>
             </Link>
             <Link to="/shoppingcart">
-              <li>shopping cart</li>
+              <li onClick={handleShoppingcart}>shopping cart</li>
             </Link>
           </ul>
         ) : (
