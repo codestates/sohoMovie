@@ -18,11 +18,10 @@ import store from "./redux/store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      {/* provider는 리덕스에서옴.. */}
-      <App />
-    </Provider>
-    ,
+    {/* <Provider store={store}> */}
+    {/* provider는 리덕스에서옴.. */}
+    <App />
+    {/* </Provider> */},
   </React.StrictMode>,
 
   document.getElementById("root")
