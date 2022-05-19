@@ -14,7 +14,7 @@
 }
 
 .signup_title {
-  width: 133px;
+  width: 100%;
   height: 43px;
   margin: 0 auto;
   font-size: 36px;
@@ -68,7 +68,7 @@
   height: 18px;
   font-size: 16px;
   line-height: 18px;
-  color: #0059f7;
+  color: #0049c8;;
   text-align: left;
 }
 
@@ -112,7 +112,7 @@
   width: 400px;
   height: 56px;
   margin: 70px auto 0;
-  background: #0059f7;
+  background: #0049c8;;
   border-radius: 8px;
   border-width: 0;
   cursor: pointer;
@@ -120,7 +120,8 @@
 
 .signup_btn-text {
   position: relative;
-  width: 74px;
+  width: 100%;
+  text-align: left;
   height: 24px;
   font-weight: 500;
   font-size: 20px;

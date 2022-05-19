@@ -1,20 +1,16 @@
 .myp_title {
-  position: absolute;
-  left: 27px;
-  top: 22px;
-  width: 252px;
   height: 32px;
   font-size: 32px;
   line-height: 37px;
   color: #fff;
-  text-align: left;
+  text-align: center;
 }
 
 .myp {
   position: absolute;
   background: #070e27;
   width: 100vw;
-  height: auto;
+  height: calc(100% - 60px);
   padding-bottom: 50px;
 }
 
@@ -63,7 +59,7 @@
   width: 360px;
   height: 56px;
   margin: 41px auto 0;
-  background: #0059f7;
+  background: #0049c8;;
   border-radius: 8px;
   border-width: 0;
   font-weight: 500;
